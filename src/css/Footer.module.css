@@ -1,5 +1,5 @@
 footer {
-    background-color: rgb(222, 215, 197);
+    background-color: var(--tan-background);
     font-size: 24px;
     margin: 0;
     width: 100vw;
@@ -9,8 +9,6 @@ footer {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 0;
 }
 
 p {

@@ -1,7 +1,7 @@
 header {
     font-family: "Lilita One", sans-serif;
     font-size: 28px;
-    background-color: rgb(222, 215, 197);
+    background-color: var(--tan-background);
     margin: 0;
     width: 100vw;
     height: 8rem;
