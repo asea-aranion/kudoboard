@@ -1,7 +1,9 @@
 import styles from "../css/BoardGrid.module.css";
 import BoardCover from "./BoardCover";
 
-const BoardGrid = ({ filterValue, boards }) => {
+const BoardGrid = ({ filterValue, searchTerm, boards }) => {
+
+    // returns array of boards matching filterValue criteria (6 most recent, "thank you" category, etc.)
     const getFilteredBoards = () => {
         switch (filterValue) {
             case "Recent":
@@ -17,9 +19,14 @@ const BoardGrid = ({ filterValue, boards }) => {
         }
     };
 
+    // true if board's title contains searchTerm ignoring case, false otherwise
+    const hasTitleIgnoreCase = (board) => {
+        return board.title.toLowerCase().includes(searchTerm.toLowerCase());
+    }
+
     return (
         <section className={styles["board-grid"]}>
-            {getFilteredBoards().map((board) => (
+            {getFilteredBoards().filter(hasTitleIgnoreCase).map((board) => (
                 <BoardCover
                     key={board.id}
                     board={board}></BoardCover>
