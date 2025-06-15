@@ -1,7 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 
 const BoardPage = () => {
-
     const [params, setParams] = useSearchParams();
     const boardId = Number(params.get("id"));
 
