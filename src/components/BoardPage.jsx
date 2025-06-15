@@ -1,5 +1,11 @@
+import { useSearchParams } from "react-router-dom";
+
 const BoardPage = () => {
-    return <h1>A board</h1>;
+
+    const [params, setParams] = useSearchParams();
+    const boardId = Number(params.get("id"));
+
+    return <h1>Board id: {boardId}</h1>;
 };
 
 export default BoardPage;
