@@ -19,10 +19,10 @@ const BoardCover = ({ board, deleteBoard }) => {
         <div
             className={styles["board-cover"]}
             onClick={navigateToBoard}>
-            <img
+            <iframe
                 className={styles["board-cover-gif"]}
                 src={board.imgSrc}
-                alt={board.imgAlt}></img>
+                alt={board.imgAlt}></iframe>
             <h2 className={styles["board-cover-title"]}>{board.title}</h2>
             <DeleteRoundedIcon
                 sx={{ fontSize: "40px" }}

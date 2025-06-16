@@ -19,6 +19,11 @@
     border-radius: 2rem;
     padding: 2rem;
     box-sizing: border-box;
+    overflow: scroll;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    align-items: center;
 }
 
 h2 {
@@ -28,7 +33,6 @@ h2 {
 }
 
 form {
-    margin-top: 2rem;
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
@@ -97,6 +101,7 @@ button {
     font-size: 32px;
     border-radius: 1rem;
     transition: transform 0.25s ease;
+    margin: auto;
 }
 
 button:hover {

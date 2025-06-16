@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import styles from "../css/Modal.module.css";
+import GifPicker from "./GifPicker";
 
 const Modal = ({ mode, hideModal, addBoard }) => {
     const overlayRef = useRef(null);
@@ -8,7 +9,17 @@ const Modal = ({ mode, hideModal, addBoard }) => {
         title: "",
         category: "",
         author: null,
+        imgSrc: "",
+        imgAlt: "",
     });
+
+    const setGifURL = (imgSrc, imgAlt) => {
+        setAddBoardData({
+            ...addBoardData,
+            imgSrc: imgSrc,
+            imgAlt: imgAlt,
+        });
+    };
 
     // hide overlay and modal if overlay itself is clicked
     const handleOverlayClick = (event) => {
@@ -95,12 +106,9 @@ const Modal = ({ mode, hideModal, addBoard }) => {
                                         placeholder="Name"></input>
                                 </div>
                             </div>
-                            <button
-                                type="submit"
-                                onClick={handleAddSubmit}>
-                                Add
-                            </button>
                         </form>
+                        <GifPicker setGifURL={setGifURL}></GifPicker>
+                        <button onClick={handleAddSubmit}>Add</button>
                     </div>
                 </div>
             );

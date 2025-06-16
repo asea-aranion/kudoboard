@@ -50,8 +50,8 @@ const HomePage = () => {
                 title: formInput.title,
                 author: formInput.author === "" ? null : formInput.author,
                 category: formInput.category,
-                imgSrc: "",
-                imgAlt: "",
+                imgSrc: formInput.imgSrc,
+                imgAlt: formInput.imgAlt,
             }),
         })
             .then((response) => response.json())
