@@ -38,7 +38,8 @@ const HomePage = () => {
                 <BoardGrid
                     filterValue={filterValue}
                     searchTerm={searchTerm}
-                    boards={boards}></BoardGrid>
+                    boards={boards}
+                    setBoards={setBoards}></BoardGrid>
             </main>
             <footer>
                 <p>Leia Spagnola 2025</p>

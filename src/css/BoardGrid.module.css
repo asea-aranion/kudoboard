@@ -8,3 +8,20 @@
     justify-items: center;
     min-height: 100vh;
 }
+
+.add-board-button {
+    background-color: var(--green-background);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12%;
+    margin-top: 5vh;
+    height: 30vh;
+    width: 75%;
+    transition: transform 0.25s ease;
+}
+
+.add-board-button:hover {
+    transform: scale(1.1);
+}

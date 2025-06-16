@@ -8,8 +8,36 @@ app.listen(PORT, () => {
 import { PrismaClient } from "./src/generated/prisma/client.js";
 const prisma = new PrismaClient();
 
+import cors from "cors";
+
+import bodyParser from "body-parser";
+
+app.use(cors());
+
+const urlParser = bodyParser.urlencoded({ extended: false });
+const jsonParser = bodyParser.json();
+
+// get array of all boards
 app.get("/boards", async (req, res) => {
     const boards = await prisma.board.findMany();
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.json(boards);
+});
+
+// add new board and respond with newly updated boards
+app.post("/boards", jsonParser, cors(), async (req, res) => {
+    const { created, title, author, category, imgSrc, imgAlt } = req.body;
+
+    await prisma.board.create({
+        data: {
+            created,
+            title,
+            author,
+            category,
+            imgSrc,
+            imgAlt,
+        },
+    });
+
+    const boards = await prisma.board.findMany();
     res.json(boards);
 });
