@@ -2,7 +2,14 @@ import styles from "../css/BoardGrid.module.css";
 import BoardCover from "./BoardCover";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 
-const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
+const BoardGrid = ({
+    filterValue,
+    searchTerm,
+    boards,
+    setBoards,
+    showModal,
+    addBoard,
+}) => {
     // returns array of boards matching filterValue criteria (6 most recent, "thank you" category, etc.)
     const getFilteredBoards = () => {
         switch (filterValue) {
@@ -24,28 +31,6 @@ const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
         return board.title.toLowerCase().includes(searchTerm.toLowerCase());
     };
 
-    // add a board and reload boards
-    const addBoard = () => {
-        fetch("http://localhost:3000/boards", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            mode: "cors",
-            body: JSON.stringify({
-                created: new Date(),
-                title: "New Board",
-                author: null,
-                category: "Thank you",
-                imgSrc: "",
-                imgAlt: "",
-            }),
-        })
-            .then((response) => response.json())
-            .then((json) => setBoards(json))
-            .catch((error) => console.error(`Error adding board: ${error}`));
-    };
-
     // delete a board with the specified id and reload boards
     const deleteBoard = (id) => {
         fetch(`http://localhost:3000/boards/${id}`, {
@@ -61,7 +46,7 @@ const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
         <section className={styles["board-grid"]}>
             <div
                 className={styles["add-board-button"]}
-                onClick={addBoard}>
+                onClick={() => showModal("add-board")}>
                 <AddRoundedIcon sx={{ fontSize: "48px" }}></AddRoundedIcon>
             </div>
             {getFilteredBoards()
