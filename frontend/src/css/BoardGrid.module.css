@@ -1,0 +1,27 @@
+.board-grid {
+    margin: 2rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 4rem;
+    row-gap: 2rem;
+    align-items: start;
+    justify-items: center;
+    min-height: 100vh;
+}
+
+.add-board-button {
+    background-color: var(--green-background);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12%;
+    margin-top: 6rem;
+    height: 12rem;
+    width: 12rem;
+    transition: transform 0.25s ease;
+}
+
+.add-board-button:hover {
+    transform: scale(1.1);
+}
