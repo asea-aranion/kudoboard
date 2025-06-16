@@ -62,3 +62,20 @@ app.delete("/boards/:id", async (req, res) => {
     const boards = await prisma.board.findMany();
     res.json(boards);
 });
+
+// get details of board with specified id
+app.get("/boards/:id", async (req, res) => {
+    const boardId = Number(req.params.id);
+
+    try {
+        const board = await prisma.board.findFirstOrThrow({
+            where: {
+                id: boardId,
+            },
+        });
+
+        res.json(board);
+    } catch (error) {
+        res.status(404).send("Board not found");
+    }
+});
