@@ -24,7 +24,7 @@ app.get("/boards", async (req, res) => {
 });
 
 // add new board and respond with newly updated boards
-app.post("/boards", jsonParser, cors(), async (req, res) => {
+app.post("/boards", jsonParser, async (req, res) => {
     const { created, title, author, category, imgSrc, imgAlt } = req.body;
 
     await prisma.board.create({
@@ -35,6 +35,26 @@ app.post("/boards", jsonParser, cors(), async (req, res) => {
             category,
             imgSrc,
             imgAlt,
+        },
+    });
+
+    const boards = await prisma.board.findMany();
+    res.json(boards);
+});
+
+// delete board with specified id
+app.delete("/boards/:id", async (req, res) => {
+    // await prisma.card.deleteMany({
+    //     where: {
+    //          boardId: id
+    //     }
+    // })
+
+    const boardId = Number(req.params.id);
+
+    await prisma.board.delete({
+        where: {
+            id: boardId,
         },
     });
 

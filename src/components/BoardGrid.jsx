@@ -24,6 +24,7 @@ const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
         return board.title.toLowerCase().includes(searchTerm.toLowerCase());
     };
 
+    // add a board and reload boards
     const addBoard = () => {
         fetch("http://localhost:3000/boards", {
             method: "POST",
@@ -45,6 +46,17 @@ const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
             .catch((error) => console.error(`Error adding board: ${error}`));
     };
 
+    // delete a board with the specified id and reload boards
+    const deleteBoard = (id) => {
+        fetch(`http://localhost:3000/boards/${id}`, {
+            method: "DELETE",
+            mode: "cors",
+        })
+            .then((response) => response.json())
+            .then((json) => setBoards(json))
+            .catch((error) => console.error(`Error deleting board: ${error}`));
+    };
+
     return (
         <section className={styles["board-grid"]}>
             <div
@@ -57,7 +69,8 @@ const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
                 .map((board) => (
                     <BoardCover
                         key={board.id}
-                        board={board}></BoardCover>
+                        board={board}
+                        deleteBoard={deleteBoard}></BoardCover>
                 ))}
         </section>
     );
