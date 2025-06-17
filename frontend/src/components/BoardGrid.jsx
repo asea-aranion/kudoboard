@@ -8,7 +8,6 @@ const BoardGrid = ({
     boards,
     setBoards,
     showModal,
-    addBoard,
 }) => {
     // returns array of boards matching filterValue criteria (6 most recent, "thank you" category, etc.)
     const getFilteredBoards = () => {

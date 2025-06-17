@@ -8,6 +8,7 @@ const GifPicker = ({ setGifURL }) => {
 
     const [selectedId, setSelectedId] = useState(null);
 
+    // get search term and load 50 results
     const handleSearch = (event) => {
         event.preventDefault();
 

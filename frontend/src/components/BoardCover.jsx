@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
 const BoardCover = ({ board, deleteBoard }) => {
+    // open board page when a board is clicked
     const navigate = useNavigate();
-
     const navigateToBoard = () => {
         navigate(`/board?id=${board.id}`);
     };
 
+    // delete a board when trash icon is clicked
     const handleDelete = (event) => {
         event.stopPropagation();
-
         deleteBoard(board.id);
     };
 

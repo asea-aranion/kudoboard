@@ -5,6 +5,7 @@ import GifPicker from "./GifPicker";
 const Modal = ({ mode, hideModal, addBoard, addCard }) => {
     const overlayRef = useRef(null);
 
+    // data entered in add board form
     const [addBoardData, setAddBoardData] = useState({
         title: "",
         category: "Thank you",
@@ -13,6 +14,7 @@ const Modal = ({ mode, hideModal, addBoard, addCard }) => {
         imgAlt: "",
     });
 
+    // data entered in add card form
     const [addCardData, setAddCardData] = useState({
         message: "",
         author: null,
@@ -20,6 +22,7 @@ const Modal = ({ mode, hideModal, addBoard, addCard }) => {
         imgAlt: "",
     });
 
+    // update form data with selected url and alt text from GifPicker
     const setGifURL = (imgSrc, imgAlt) => {
         switch (mode) {
             case "add-board":

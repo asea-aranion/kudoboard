@@ -5,17 +5,16 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
+// set up prisma
 const { PrismaClient } = require("./src/generated/prisma/client.js");
-
 const prisma = new PrismaClient();
 
+// allow all cross-origin requests
 const cors = require("cors");
-
-const bodyParser = require("body-parser");
-
 app.use(cors());
 
-const urlParser = bodyParser.urlencoded({ extended: false });
+// allow server to parse json bodies
+const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 
 // get array of all boards

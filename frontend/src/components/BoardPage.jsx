@@ -9,16 +9,20 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Modal from "./Modal";
 
 const BoardPage = () => {
+    // get id of this board
     const [params, setParams] = useSearchParams();
     const boardId = Number(params.get("id"));
 
+    // state of board details and board's cards
     const [board, setBoard] = useState(null);
     const [cards, setCards] = useState(Array());
 
+    // type of form modal should display
     const [modalMode, setModalMode] = useState("add-card");
 
     const navigate = useNavigate();
 
+    // load details of board
     const fetchBoardData = () => {
         fetch(`http://localhost:3000/boards/${boardId}`)
             .then((response) => {
@@ -36,6 +40,7 @@ const BoardPage = () => {
             );
     };
 
+    // load cards associated with this board
     const fetchCards = () => {
         fetch(`http://localhost:3000/board/cards/${boardId}`)
             .then((response) => {
@@ -55,6 +60,7 @@ const BoardPage = () => {
             );
     };
 
+    // increment number of upvotes for specified card and update display
     const upvoteCard = (cardId) => {
         fetch(`http://localhost:3000/card/upvote/${cardId}`, {
             method: "POST",
@@ -72,6 +78,7 @@ const BoardPage = () => {
             );
     };
 
+    // add card to database and update display
     const addCard = (formInput) => {
         fetch(`http://localhost:3000/board/cards/${boardId}`, {
             method: "POST",
@@ -100,6 +107,7 @@ const BoardPage = () => {
             .catch((error) => console.error(`Error adding card: ${error}`));
     };
 
+    // delete specified card from database and update display
     const deleteCard = (cardId) => {
         fetch(`http://localhost:3000/card/${cardId}`, {
             method: "DELETE",
@@ -117,17 +125,20 @@ const BoardPage = () => {
             );
     };
 
+    // show modal with specified form type; disable scrolling behind
     const showModal = (newMode) => {
         setModalMode(newMode);
         document.querySelector("#overlay").style.display = "block";
         document.querySelector("body").style.overflow = "hidden";
     };
 
+    // hide modal and enable scrolling behind
     const hideModal = () => {
         document.querySelector("#overlay").style.display = "none";
         document.querySelector("body").style.overflow = "scroll";
     };
 
+    // fetch data on page load
     useEffect(() => {
         fetchBoardData();
         fetchCards();
