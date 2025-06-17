@@ -1,4 +1,4 @@
-.title {
+.title-container {
     font-size: 48px;
     width: 90vw;
     background-color: var(--tan-background);
@@ -6,6 +6,28 @@
     padding: 2rem;
     border-radius: 2rem;
     box-shadow: 15px 0 0 var(--tan-accent);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+}
+
+.back-button {
+    margin: 0;
+    border-radius: 4rem;
+    box-shadow: 15px 0 0 var(--green-accent);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.back-button-text {
+    margin: 0;
+    padding-top: 5px;
 }
 
 .details-container {

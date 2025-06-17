@@ -85,12 +85,12 @@ app.get("/board/cards/:boardId", async (req, res) => {
     const boardId = Number(req.params.boardId);
 
     const cards = await prisma.card.findMany({
-        where:{
-            boardId: boardId
-        }
+        where: {
+            boardId: boardId,
+        },
     });
     res.json(cards);
-})
+});
 
 // add card to specified board
 app.post("/board/cards/:boardId", async (req, res) => {
@@ -105,14 +105,46 @@ app.post("/board/cards/:boardId", async (req, res) => {
             author: author,
             imgSrc: imgSrc,
             imgAlt: imgAlt,
-            upvotes: upvotes
-        }
-    })
+            upvotes: upvotes,
+        },
+    });
 
     const cards = await prisma.card.findMany({
-        where:{
-            boardId: boardId
-        }
+        where: {
+            boardId: boardId,
+        },
     });
     res.json(cards);
-})
+});
+
+// upvote a card
+app.post("/card/upvote/:cardId", async (req, res) => {
+    const cardId = Number(req.params.cardId);
+
+    try {
+        const { upvotes } = await prisma.card.findFirstOrThrow({
+            where: {
+                id: cardId,
+            },
+        });
+
+        await prisma.card.update({
+            where: {
+                id: cardId,
+            },
+            data: {
+                upvotes: upvotes + 1,
+            },
+        });
+
+        const card = await prisma.card.findMany({
+            where: {
+                id: cardId,
+            },
+        });
+
+        res.status(200).send();
+    } catch (error) {
+        res.status(404).send("Card not found");
+    }
+});
