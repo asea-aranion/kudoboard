@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styles from "../css/Modal.module.css";
 import GifPicker from "./GifPicker";
 
-const Modal = ({ mode, hideModal, addBoard, addCard }) => {
+const Modal = ({ mode, setMode, addBoard, addCard, cardInfo }) => {
     const overlayRef = useRef(null);
 
     // data entered in add board form
@@ -43,7 +43,7 @@ const Modal = ({ mode, hideModal, addBoard, addCard }) => {
     // hide overlay and modal if overlay itself is clicked
     const handleOverlayClick = (event) => {
         if (event.target === overlayRef.current) {
-            hideModal();
+            setMode("hidden");
         }
     };
 
@@ -57,7 +57,7 @@ const Modal = ({ mode, hideModal, addBoard, addCard }) => {
             addCard(addCardData);
         }
 
-        hideModal();
+        setMode("hidden");
     };
 
     // depending on mode, populate modal text and form inputs
@@ -192,6 +192,20 @@ const Modal = ({ mode, hideModal, addBoard, addCard }) => {
                     </div>
                 </div>
             );
+        case "comments":
+            return (
+                <div
+                    id="overlay"
+                    className={styles["overlay"]}
+                    ref={overlayRef}
+                    onClick={handleOverlayClick}>
+                    <div className={styles["modal"]}>
+                        <h2>comments</h2>
+                    </div>
+                </div>
+            );
+        default:
+            return <></>;
     }
 };
 

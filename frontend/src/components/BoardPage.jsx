@@ -17,8 +17,8 @@ const BoardPage = () => {
     const [board, setBoard] = useState(null);
     const [cards, setCards] = useState(Array());
 
-    // type of form modal should display
-    const [modalMode, setModalMode] = useState("add-card");
+    // type of content modal should display (here, hidden or add-card)
+    const [modalMode, setModalMode] = useState("hidden");
 
     const navigate = useNavigate();
 
@@ -78,6 +78,24 @@ const BoardPage = () => {
             );
     };
 
+    // delete specified card from database and update display
+    const deleteCard = (cardId) => {
+        fetch(`http://localhost:3000/card/${cardId}`, {
+            method: "DELETE",
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(
+                        `${response.status}: ${response.statusText}`,
+                    );
+                }
+            })
+            .then(fetchCards)
+            .catch((error) =>
+                console.error(`Error deleting card ${cardId}: ${error}`),
+            );
+    };
+
     // add card to database and update display
     const addCard = (formInput) => {
         fetch(`http://localhost:3000/board/cards/${boardId}`, {
@@ -107,24 +125,6 @@ const BoardPage = () => {
             .catch((error) => console.error(`Error adding card: ${error}`));
     };
 
-    // delete specified card from database and update display
-    const deleteCard = (cardId) => {
-        fetch(`http://localhost:3000/card/${cardId}`, {
-            method: "DELETE",
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(
-                        `${response.status}: ${response.statusText}`,
-                    );
-                }
-            })
-            .then(fetchCards)
-            .catch((error) =>
-                console.error(`Error deleting card ${cardId}: ${error}`),
-            );
-    };
-
     // pin specified card with pin date now and update display
     const pinCard = (cardId) => {
         fetch(`http://localhost:3000/card/pin/${cardId}`, {
@@ -143,19 +143,6 @@ const BoardPage = () => {
             );
     };
 
-    // show modal with specified form type; disable scrolling behind
-    const showModal = (newMode) => {
-        setModalMode(newMode);
-        document.querySelector("#overlay").style.display = "block";
-        document.querySelector("body").style.overflow = "hidden";
-    };
-
-    // hide modal and enable scrolling behind
-    const hideModal = () => {
-        document.querySelector("#overlay").style.display = "none";
-        document.querySelector("body").style.overflow = "scroll";
-    };
-
     // fetch data on page load
     useEffect(() => {
         fetchBoardData();
@@ -167,7 +154,7 @@ const BoardPage = () => {
             <>
                 <Modal
                     mode={modalMode}
-                    hideModal={hideModal}
+                    setMode={setModalMode}
                     addCard={addCard}></Modal>
                 <div className={styles["title-container"]}>
                     <button
@@ -190,7 +177,7 @@ const BoardPage = () => {
                 </div>
                 <button
                     className={styles["add-card-button"]}
-                    onClick={() => showModal("add-card")}>
+                    onClick={() => setModalMode("add-card")}>
                     <AddRoundedIcon></AddRoundedIcon>
                     <p className={styles["add-button-text"]}>Add Card</p>
                 </button>

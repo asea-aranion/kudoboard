@@ -17,24 +17,55 @@
     top: 1rem;
     right: 1rem;
     background-color: var(--green-background);
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 0.8rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     align-items: center;
     gap: 1rem;
     border-radius: 2rem;
-    width: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     overflow: hidden;
     transition: width 0.25s ease;
+    box-sizing: border-box;
 }
 
 .pin-button-container:hover {
-    width: 6rem;
+    width: 8rem;
 }
 
 .pin-text {
     font-size: 32px;
+    padding-top: 5px;
+}
+
+.delete-text {
+    font-size: 32px;
+    padding-top: 5px;
+}
+
+.delete-button-container {
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    background-color: var(--green-background);
+    padding: 0.2rem 0.8rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    overflow: hidden;
+    transition: width 0.25s ease;
+    box-sizing: border-box;
+}
+
+.delete-button-container:hover {
+    width: 9rem;
 }
 
 .card-gif {
@@ -53,17 +84,14 @@
     padding-top: 1rem;
 }
 
-.message {
-    font-size: 32px;
-    margin: 0;
-}
-
+.message,
 .author {
     font-size: 32px;
+    line-height: 32px;
     margin: 0;
 }
 
-.card-buttons {
+.card-footer {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -74,7 +102,7 @@
 .upvote-container {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--green-background);
     padding: 0 1rem;
@@ -87,7 +115,7 @@
 }
 
 .upvote-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .upvotes {
@@ -95,11 +123,16 @@
     font-size: 32px;
 }
 
-.delete-button {
-    color: var(--tan-accent);
-    transition: transform 0.25s ease !important;
+.comments-button {
+    border: none;
+    background-color: var(--green-background);
+    font-family: inherit;
+    font-size: 32px;
+    padding: 0 1.5rem;
+    border-radius: 2rem;
+    transition: transform 0.25s ease;
 }
 
-.delete-button:hover {
+.comments-button:hover {
     transform: scale(1.1);
 }
