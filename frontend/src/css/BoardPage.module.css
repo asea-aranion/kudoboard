@@ -2,7 +2,7 @@
     font-size: 48px;
     width: 90vw;
     background-color: var(--tan-background);
-    margin: 1rem;
+    margin: 2rem;
     padding: 2rem;
     border-radius: 2rem;
     box-shadow: 15px 0 0 var(--tan-accent);
@@ -15,7 +15,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 3rem;
-    margin: 1rem;
+    margin: 2rem;
 }
 
 .detail {

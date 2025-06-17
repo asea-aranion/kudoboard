@@ -2,7 +2,7 @@
     background-color: var(--tan-background);
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 0.3rem;
     padding: 1rem;
@@ -32,8 +32,8 @@
     height: 70%;
     max-width: 90%;
     object-fit: cover;
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
 }
 
 .board-cover-title {
