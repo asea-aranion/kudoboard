@@ -7,10 +7,11 @@
     border-radius: 2rem;
     box-shadow: 15px 0 0 var(--tan-accent);
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
     gap: 3rem;
+    box-sizing: border-box;
 }
 
 .back-button {
@@ -42,7 +43,7 @@
 
 .detail-container {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     gap: 1rem;

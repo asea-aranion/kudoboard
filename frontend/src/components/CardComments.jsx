@@ -11,7 +11,6 @@ const CardComments = ({ cardId }) => {
 
     // add comment with entered data
     const addComment = () => {
-        console.log(newComment);
         fetch(`http://localhost:3000/comments/card/${cardId}`, {
             method: "POST",
             headers: {
