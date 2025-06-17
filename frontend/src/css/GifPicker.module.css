@@ -37,8 +37,16 @@
 .search-button {
     border-radius: 2rem;
     height: 4rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
     font-size: 28px;
+    border: none;
+    background-color: var(--green-background);
+    font-family: inherit;
+    transition: transform 0.25s ease;
+}
+
+.search-button:hover {
+    transform: scale(1.1);
 }
 
 .gifs-container {

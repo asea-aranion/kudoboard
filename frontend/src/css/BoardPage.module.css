@@ -23,6 +23,16 @@
     justify-content: center;
     gap: 1rem;
     padding: 0.5rem;
+    border: none;
+    background-color: var(--green-background);
+    font-family: inherit;
+    font-size: 32px;
+    padding: 0.5rem 2rem;
+    transition: transform 0.25s ease;
+}
+
+.back-button:hover {
+    transform: scale(1.1);
 }
 
 .back-button-text {
@@ -30,19 +40,38 @@
     padding-top: 5px;
 }
 
-.details-container {
-    font-size: 36px;
+.detail-container {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    flex-flow: row nowrap;
     align-items: center;
-    gap: 3rem;
-    margin: 2rem;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .detail {
+    padding-top: 5px;
+    font-size: 36px;
+}
+
+.add-card-button {
+    margin: 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
     background-color: var(--green-background);
-    padding: 2rem 5rem;
-    border-radius: 2rem;
-    box-shadow: 15px 0 0 var(--green-accent);
+    border: none;
+    font-family: inherit;
+    font-size: 32px;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    transition: transform 0.25s ease;
+}
+
+.add-card-button:hover {
+    transform: scale(1.1);
+}
+
+.add-button-text {
+    padding-top: 5px;
 }

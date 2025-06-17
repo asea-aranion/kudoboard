@@ -1,7 +1,8 @@
 import styles from "../css/Card.module.css";
 import ForwardRoundedIcon from "@mui/icons-material/ForwardRounded";
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
-const Card = ({ card, upvoteCard }) => {
+const Card = ({ card, upvoteCard, deleteCard }) => {
     return (
         <div className={styles["card"]}>
             <iframe
@@ -23,6 +24,10 @@ const Card = ({ card, upvoteCard }) => {
                             }></ForwardRoundedIcon>
                         <p className={styles["upvotes"]}>{card.upvotes}</p>
                     </div>
+                    <DeleteRoundedIcon
+                        className={styles["delete-button"]}
+                        sx={{ fontSize: "32px" }}
+                        onClick={() => deleteCard(card.id)}></DeleteRoundedIcon>
                 </div>
             </div>
         </div>

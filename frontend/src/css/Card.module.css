@@ -1,26 +1,30 @@
 .card {
     background-color: var(--tan-background);
     width: 100%;
-    height: 20rem;
     display: flex;
     box-sizing: border-box;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     border-radius: 2rem;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .card-gif {
-    width: 50%;
+    height: 50%;
+    max-width: 90%;
+    object-fit: cover;
 }
 
 .card-info {
-    width: 50%;
+    width: 90%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: flex-start;
     gap: 0.5rem;
+    padding-top: 1rem;
 }
 
 .message {
@@ -38,6 +42,7 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .upvote-container {
@@ -62,4 +67,13 @@
 .upvotes {
     padding-top: 5px;
     font-size: 32px;
+}
+
+.delete-button {
+    color: var(--tan-accent);
+    transition: transform 0.25s ease !important;
+}
+
+.delete-button:hover {
+    transform: scale(1.1);
 }

@@ -45,13 +45,13 @@ app.post("/boards", jsonParser, async (req, res) => {
 
 // delete board with specified id
 app.delete("/boards/:id", async (req, res) => {
-    // await prisma.card.deleteMany({
-    //     where: {
-    //          boardId: id
-    //     }
-    // })
-
     const boardId = Number(req.params.id);
+
+    await prisma.card.deleteMany({
+        where: {
+            boardId: boardId,
+        },
+    });
 
     await prisma.board.delete({
         where: {
@@ -93,7 +93,7 @@ app.get("/board/cards/:boardId", async (req, res) => {
 });
 
 // add card to specified board
-app.post("/board/cards/:boardId", async (req, res) => {
+app.post("/board/cards/:boardId", jsonParser, async (req, res) => {
     const boardId = Number(req.params.boardId);
 
     const { message, author, imgSrc, imgAlt, upvotes } = req.body;
@@ -147,4 +147,17 @@ app.post("/card/upvote/:cardId", async (req, res) => {
     } catch (error) {
         res.status(404).send("Card not found");
     }
+});
+
+// delete a card
+app.delete("/card/:id", async (req, res) => {
+    const cardId = Number(req.params.id);
+
+    await prisma.card.delete({
+        where: {
+            id: cardId,
+        },
+    });
+
+    res.status(204).send();
 });

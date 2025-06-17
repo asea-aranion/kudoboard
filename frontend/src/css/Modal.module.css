@@ -92,7 +92,7 @@ select:focus-visible {
     outline: none;
 }
 
-button {
+.submit-button {
     width: 10rem;
     padding: 1rem;
     border: none;
@@ -104,6 +104,6 @@ button {
     margin: auto;
 }
 
-button:hover {
+.submit-button:hover {
     transform: scale(1.1);
 }
