@@ -34,3 +34,10 @@ model Card {
   upvotes Int
   pinDate DateTime?
 }
+
+model Comment {
+  id Int @id @default(autoincrement())
+  cardId Int
+  text String
+  author String?
+}

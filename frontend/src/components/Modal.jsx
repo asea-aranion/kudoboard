@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "../css/Modal.module.css";
 import GifPicker from "./GifPicker";
+import CardComments from "./CardComments";
 
 const Modal = ({ mode, setMode, addBoard, addCard, cardInfo }) => {
     const overlayRef = useRef(null);
@@ -201,6 +202,21 @@ const Modal = ({ mode, setMode, addBoard, addCard, cardInfo }) => {
                     onClick={handleOverlayClick}>
                     <div className={styles["modal"]}>
                         <h2>comments</h2>
+                        <div className={styles["split-container"]}>
+                            <div className={styles["card-info-container"]}>
+                                <iframe
+                                    className={styles["card-gif"]}
+                                    src={cardInfo.imgSrc}
+                                    alt={cardInfo.imgAlt}></iframe>
+                                <h3 className={styles["card-message"]}>
+                                    {cardInfo.message}
+                                </h3>
+                                <p className={styles["card-author"]}>
+                                    - {cardInfo.author ?? "Anonymous"}
+                                </p>
+                            </div>
+                            <CardComments cardId={cardInfo.id}></CardComments>
+                        </div>
                     </div>
                 </div>
             );

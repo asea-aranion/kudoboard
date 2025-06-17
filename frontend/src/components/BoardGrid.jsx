@@ -5,7 +5,6 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Modal from "./Modal";
 
 const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
-
     // type of content modal should display (here, hidden or add-board)
     const [modalMode, setModalMode] = useState("hidden");
 

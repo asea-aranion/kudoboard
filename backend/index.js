@@ -46,6 +46,20 @@ app.post("/boards", jsonParser, async (req, res) => {
 app.delete("/boards/:id", async (req, res) => {
     const boardId = Number(req.params.id);
 
+    const cards = await prisma.card.findMany({
+        where: {
+            boardId: boardId,
+        },
+    });
+
+    cards.forEach(async (card) => {
+        await prisma.comment.deleteMany({
+            where: {
+                cardId: card.id,
+            },
+        });
+    });
+
     await prisma.card.deleteMany({
         where: {
             boardId: boardId,
@@ -146,6 +160,12 @@ app.post("/card/upvote/:cardId", async (req, res) => {
 app.delete("/card/:id", async (req, res) => {
     const cardId = Number(req.params.id);
 
+    await prisma.comment.deleteMany({
+        where: {
+            cardId: cardId,
+        },
+    });
+
     await prisma.card.delete({
         where: {
             id: cardId,
@@ -186,4 +206,40 @@ app.post("/card/pin/:id", async (req, res) => {
     }
 
     res.status(200).send();
+});
+
+// get all comments associated with specified card
+app.get("/comments/card/:cardId", async (req, res) => {
+    const cardId = Number(req.params.cardId);
+
+    const comments = await prisma.comment.findMany({
+        where: {
+            cardId: cardId,
+        },
+    });
+
+    res.json(comments);
+});
+
+// add a comment to the specified card
+app.post("/comments/card/:cardId", jsonParser, async (req, res) => {
+    const cardId = Number(req.params.cardId);
+
+    const { text, author } = req.body;
+
+    await prisma.comment.create({
+        data: {
+            cardId: cardId,
+            text: text,
+            author: author,
+        },
+    });
+
+    const comments = await prisma.comment.findMany({
+        where: {
+            cardId: cardId,
+        },
+    });
+
+    res.json(comments);
 });

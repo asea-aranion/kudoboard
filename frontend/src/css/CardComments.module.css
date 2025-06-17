@@ -1,0 +1,82 @@
+.container {
+    width: 100%;
+    position: relative;
+}
+
+.comments-container {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    box-sizing: border-box;
+    gap: 1rem;
+}
+
+.comment {
+    background-color: var(--green-background);
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    font-size: 24px;
+}
+
+.add-form-container {
+    margin: 1rem 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+    box-sizing: border-box;
+}
+
+.label-container {
+    background-color: var(--tan-background);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    margin: auto;
+    border-radius: 2rem;
+    width: 100%;
+}
+
+.input-container {
+    background-color: var(--green-background);
+    height: 100%;
+    flex-grow: 2;
+    border-radius: 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.label,
+.input {
+    font-size: 24px;
+}
+
+.text-input {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.author-input {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.add-comment-button {
+    background-color: var(--green-background);
+    border: none;
+    font-family: inherit;
+    font-size: 24px;
+    border-radius: 2rem;
+}

@@ -106,3 +106,32 @@ select:focus-visible {
 .submit-button:hover {
     transform: scale(1.1);
 }
+
+.split-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+.card-info-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.card-gif {
+    height: 40vh;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.card-message,
+.card-author {
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0;
+}

@@ -7,7 +7,6 @@ import { useState } from "react";
 import Modal from "./Modal";
 
 const Card = ({ card, upvoteCard, deleteCard, pinCard }) => {
-
     // type of content modal should display (here, hidden or comments)
     const [modalMode, setModalMode] = useState("hidden");
 
@@ -15,7 +14,8 @@ const Card = ({ card, upvoteCard, deleteCard, pinCard }) => {
         <>
             <Modal
                 mode={modalMode}
-                setMode={setModalMode}></Modal>
+                setMode={setModalMode}
+                cardInfo={card}></Modal>
             <div className={styles["card"]}>
                 <div className={styles["pin-button-container"]}>
                     <p className={styles["pin-text"]}>
