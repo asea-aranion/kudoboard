@@ -79,3 +79,40 @@ app.get("/boards/:id", async (req, res) => {
         res.status(404).send("Board not found");
     }
 });
+
+// get all cards associated with specified board
+app.get("/board/cards/:boardId", async (req, res) => {
+    const boardId = Number(req.params.boardId);
+
+    const cards = await prisma.card.findMany({
+        where:{
+            boardId: boardId
+        }
+    });
+    res.json(cards);
+})
+
+// add card to specified board
+app.post("/board/cards/:boardId", async (req, res) => {
+    const boardId = Number(req.params.boardId);
+
+    const { message, author, imgSrc, imgAlt, upvotes } = req.body;
+
+    await prisma.card.create({
+        data: {
+            boardId: boardId,
+            message: message,
+            author: author,
+            imgSrc: imgSrc,
+            imgAlt: imgAlt,
+            upvotes: upvotes
+        }
+    })
+
+    const cards = await prisma.card.findMany({
+        where:{
+            boardId: boardId
+        }
+    });
+    res.json(cards);
+})

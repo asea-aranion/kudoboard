@@ -22,5 +22,15 @@ model Board {
   category String
   imgSrc String
   imgAlt String
-  cardIds String[]
+}
+
+model Card {
+  id Int @id @default(autoincrement())
+  boardId Int
+  message String
+  author String?
+  imgSrc String
+  imgAlt String
+  upvotes Int
+  pinDate DateTime?
 }
