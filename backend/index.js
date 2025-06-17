@@ -136,12 +136,6 @@ app.post("/card/upvote/:cardId", async (req, res) => {
             },
         });
 
-        const card = await prisma.card.findMany({
-            where: {
-                id: cardId,
-            },
-        });
-
         res.status(200).send();
     } catch (error) {
         res.status(404).send("Card not found");
@@ -159,4 +153,37 @@ app.delete("/card/:id", async (req, res) => {
     });
 
     res.status(204).send();
+});
+
+// toggle a card's pin state
+app.post("/card/pin/:id", async (req, res) => {
+    const cardId = Number(req.params.id);
+
+    const { pinDate } = await prisma.card.findUnique({
+        where: {
+            id: cardId,
+        },
+    });
+
+    if (pinDate) {
+        await prisma.card.update({
+            where: {
+                id: cardId,
+            },
+            data: {
+                pinDate: null,
+            },
+        });
+    } else {
+        await prisma.card.update({
+            where: {
+                id: cardId,
+            },
+            data: {
+                pinDate: new Date(),
+            },
+        });
+    }
+
+    res.status(200).send();
 });

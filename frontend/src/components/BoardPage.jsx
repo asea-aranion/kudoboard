@@ -125,6 +125,24 @@ const BoardPage = () => {
             );
     };
 
+    // pin specified card with pin date now and update display
+    const pinCard = (cardId) => {
+        fetch(`http://localhost:3000/card/pin/${cardId}`, {
+            method: "POST",
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(
+                        `${response.status}: ${response.statusText}`,
+                    );
+                }
+            })
+            .then(fetchCards)
+            .catch((error) =>
+                console.error(`Error pinning card ${cardId}: ${error}`),
+            );
+    };
+
     // show modal with specified form type; disable scrolling behind
     const showModal = (newMode) => {
         setModalMode(newMode);
@@ -179,7 +197,8 @@ const BoardPage = () => {
                 <CardGrid
                     cards={cards}
                     upvoteCard={upvoteCard}
-                    deleteCard={deleteCard}></CardGrid>
+                    deleteCard={deleteCard}
+                    pinCard={pinCard}></CardGrid>
             </>
         );
     } else {

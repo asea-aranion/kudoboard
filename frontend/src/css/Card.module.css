@@ -9,6 +9,32 @@
     align-items: center;
     padding: 1rem;
     box-sizing: border-box;
+    position: relative;
+}
+
+.pin-button-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--green-background);
+    padding: 0.2rem 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 2rem;
+    width: 1.5rem;
+    overflow: hidden;
+    transition: width 0.25s ease;
+}
+
+.pin-button-container:hover {
+    width: 6rem;
+}
+
+.pin-text {
+    font-size: 32px;
 }
 
 .card-gif {
