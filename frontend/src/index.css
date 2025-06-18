@@ -7,12 +7,20 @@
 
     --tan-background: rgb(232, 215, 172);
     --tan-accent: rgb(176, 143, 60);
-    --dark-text: rgb(23, 21, 14);
+    --text: rgb(23, 21, 14);
     --green-background: rgb(198, 231, 192);
     --green-accent: rgb(162, 213, 149);
+    --page-background: rgb(251, 251, 248);
 }
 
 body {
     margin: 0;
-    color: var(--dark-text);
+    color: var(--text);
+    background-color: var(--page-background);
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    color: inherit;
 }

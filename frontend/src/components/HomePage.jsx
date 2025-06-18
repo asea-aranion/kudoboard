@@ -4,6 +4,7 @@ import BoardGrid from "./BoardGrid";
 import FilterPicker from "./FilterPicker";
 import { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
+import ColorSchemePicker from "./ColorSchemePicker";
 
 const HomePage = () => {
     // current filter
@@ -15,6 +16,8 @@ const HomePage = () => {
     // array of data representing each board
     const [boards, setBoards] = useState(Array());
 
+    const [inDarkMode, setInDarkMode] = useState(false);
+
     // load boards from running server (connection to database)
     const loadBoards = () => {
         fetch("http://localhost:3000/boards")
@@ -23,10 +26,33 @@ const HomePage = () => {
             .catch((error) => console.error(`Error fetching boards: ${error}`));
     };
 
+    const toggleColorScheme = () => {
+        if (inDarkMode) {
+            document.documentElement.style.setProperty("--tan-background", "rgb(232, 215, 172)")
+            document.documentElement.style.setProperty("--tan-accent", "rgb(176, 143, 60)")
+            document.documentElement.style.setProperty("--green-background", "rgb(198, 231, 192)")
+            document.documentElement.style.setProperty("--green-accent", "rgb(162, 213, 149)")
+            document.documentElement.style.setProperty("--page-background", "rgb(251, 251, 248")
+            document.documentElement.style.setProperty("--text", "rgb(23, 21, 14)")
+            setInDarkMode(false);
+
+        } else {
+            document.documentElement.style.setProperty("--tan-background", "rgb(80, 69, 46)")
+            document.documentElement.style.setProperty("--tan-accent", "rgb(174, 147, 79)")
+            document.documentElement.style.setProperty("--green-background", "rgb(59, 77, 56)")
+            document.documentElement.style.setProperty("--green-accent", "rgb(72, 116, 61)")
+            document.documentElement.style.setProperty("--page-background", "rgb(38, 32, 8)")
+            document.documentElement.style.setProperty("--text", "rgb(251, 251, 248)")
+            setInDarkMode(true);
+        }
+        
+    }
+
     useEffect(loadBoards, []);
 
     return (
         <>
+            <ColorSchemePicker inDarkMode={inDarkMode} setInDarkMode={toggleColorScheme}></ColorSchemePicker>
             <header>
                 <h1>kudoboard</h1>
             </header>

@@ -1,0 +1,34 @@
+.picker-container {
+    background-color: var(--green-background);
+    width: 10rem;
+    height: 4rem;
+    margin: 2rem 0;
+    border-radius: 2rem;
+    position: fixed;
+    right: 2rem;
+}
+
+.slider {
+    background-color: var(--green-accent);
+    width: 50%;
+    height: 100%;
+    border-radius: 2rem;
+    position: absolute;
+    z-index: 1;
+    transition: transform 0.25s ease;
+}
+
+.picker-options-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.picker-options-container svg {
+    z-index: 2;
+    font-size: 32px;
+    text-align: center;
+}
