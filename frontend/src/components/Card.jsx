@@ -48,7 +48,7 @@ const Card = ({ card, upvoteCard, deleteCard, pinCard }) => {
                 <iframe
                     className={styles["card-gif"]}
                     src={card.imgSrc}
-                    alt={card.imgAlt}></iframe>
+                    title={card.imgAlt}></iframe>
                 <div className={styles["card-info"]}>
                     <h3 className={styles["message"]}>{card.message}</h3>
                     <p className={styles["author"]}>

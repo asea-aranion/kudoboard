@@ -68,7 +68,7 @@ const GifPicker = ({ setGifURL }) => {
                             key={gif.id}>
                             <iframe
                                 src={gif.embed}
-                                alt={gif.alt}></iframe>
+                                title={gif.alt}></iframe>
                             <div
                                 className={`${styles["iframe-cover"]} ${selectedId === gif.id ? styles["selected-cover"] : ""}`}></div>
                         </div>

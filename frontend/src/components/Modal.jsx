@@ -60,7 +60,7 @@ const Modal = ({ mode, setMode, addBoard, addCard, cardInfo }) => {
                                 <iframe
                                     className={styles["card-gif"]}
                                     src={cardInfo.imgSrc}
-                                    alt={cardInfo.imgAlt}></iframe>
+                                    title={cardInfo.imgAlt}></iframe>
                                 <h3 className={styles["card-message"]}>
                                     {cardInfo.message}
                                 </h3>

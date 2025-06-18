@@ -27,7 +27,7 @@ app.get("/boards", async (req, res) => {
 app.post("/boards", jsonParser, async (req, res) => {
     const { created, title, author, category, imgSrc, imgAlt } = req.body;
 
-    if (!created || !title || !category || !imgSrc || !imgAlt) {
+    if (!created || !title || !category || !imgSrc) {
         res.status(400).send("All fields except author required");
         return;
     }
@@ -116,7 +116,7 @@ app.post("/board/cards/:boardId", jsonParser, async (req, res) => {
 
     const { message, author, imgSrc, imgAlt, upvotes } = req.body;
 
-    if (!message || !imgSrc || !imgAlt) {
+    if (!message || !imgSrc) {
         res.status(400).send("All fields except author required");
         return;
     }
