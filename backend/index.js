@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running!`);
 });
 
 // set up prisma
@@ -27,6 +27,10 @@ app.get("/boards", async (req, res) => {
 app.post("/boards", jsonParser, async (req, res) => {
     const { created, title, author, category, imgSrc, imgAlt } = req.body;
 
+    if (!created || !title || !category || !imgSrc || !imgAlt) {
+        res.status(400).send("All fields except author required");
+    }
+
     await prisma.board.create({
         data: {
             created,
@@ -39,7 +43,7 @@ app.post("/boards", jsonParser, async (req, res) => {
     });
 
     const boards = await prisma.board.findMany();
-    res.json(boards);
+    res.status(201).json(boards);
 });
 
 // delete board with specified id
@@ -111,6 +115,10 @@ app.post("/board/cards/:boardId", jsonParser, async (req, res) => {
 
     const { message, author, imgSrc, imgAlt, upvotes } = req.body;
 
+    if (!message || !upvotes || !imgSrc || !imgAlt) {
+        res.status(400).send("All fields except author required");
+    }
+
     await prisma.card.create({
         data: {
             boardId: boardId,
@@ -127,7 +135,7 @@ app.post("/board/cards/:boardId", jsonParser, async (req, res) => {
             boardId: boardId,
         },
     });
-    res.json(cards);
+    res.status(201).json(cards);
 });
 
 // upvote a card
@@ -150,7 +158,7 @@ app.post("/card/upvote/:cardId", async (req, res) => {
             },
         });
 
-        res.status(200).send();
+        res.send();
     } catch (error) {
         res.status(404).send("Card not found");
     }
@@ -227,6 +235,10 @@ app.post("/comments/card/:cardId", jsonParser, async (req, res) => {
 
     const { text, author } = req.body;
 
+    if (!text) {
+        res.status(400).send("Text required");
+    }
+
     await prisma.comment.create({
         data: {
             cardId: cardId,
@@ -241,5 +253,5 @@ app.post("/comments/card/:cardId", jsonParser, async (req, res) => {
         },
     });
 
-    res.json(comments);
+    res.status(201).json(comments);
 });
