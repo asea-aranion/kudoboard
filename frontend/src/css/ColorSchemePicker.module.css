@@ -6,6 +6,7 @@
     border-radius: 2rem;
     position: fixed;
     right: 2rem;
+    z-index: 3;
 }
 
 .slider {
@@ -14,7 +15,7 @@
     height: 100%;
     border-radius: 2rem;
     position: absolute;
-    z-index: 1;
+    z-index: 4;
     transition: transform 0.25s ease;
 }
 
@@ -28,7 +29,7 @@
 }
 
 .picker-options-container svg {
-    z-index: 2;
+    z-index: 5;
     font-size: 32px;
     text-align: center;
 }
