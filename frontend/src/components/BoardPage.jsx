@@ -24,7 +24,7 @@ const BoardPage = () => {
 
     // load details of board
     const fetchBoardData = () => {
-        fetch(`http://localhost:3000/boards/${boardId}`)
+        fetch(`import.meta.env.VITE_SERVER_URL/boards/${boardId}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(
@@ -42,7 +42,7 @@ const BoardPage = () => {
 
     // load cards associated with this board
     const fetchCards = () => {
-        fetch(`http://localhost:3000/board/cards/${boardId}`)
+        fetch(`import.meta.env.VITE_SERVER_URL/board/cards/${boardId}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(
@@ -62,7 +62,7 @@ const BoardPage = () => {
 
     // increment number of upvotes for specified card and update display
     const upvoteCard = (cardId) => {
-        fetch(`http://localhost:3000/card/upvote/${cardId}`, {
+        fetch(`import.meta.env.VITE_SERVER_URL/card/upvote/${cardId}`, {
             method: "POST",
         })
             .then((response) => {
@@ -80,7 +80,7 @@ const BoardPage = () => {
 
     // delete specified card from database and update display
     const deleteCard = (cardId) => {
-        fetch(`http://localhost:3000/card/${cardId}`, {
+        fetch(`import.meta.env.VITE_SERVER_URL/card/${cardId}`, {
             method: "DELETE",
         })
             .then((response) => {
@@ -98,7 +98,7 @@ const BoardPage = () => {
 
     // add card to database and update display
     const addCard = (formInput) => {
-        fetch(`http://localhost:3000/board/cards/${boardId}`, {
+        fetch(`import.meta.env.VITE_SERVER_URL/board/cards/${boardId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -127,7 +127,7 @@ const BoardPage = () => {
 
     // pin specified card with pin date now and update display
     const pinCard = (cardId) => {
-        fetch(`http://localhost:3000/card/pin/${cardId}`, {
+        fetch(`import.meta.env.VITE_SERVER_URL/card/pin/${cardId}`, {
             method: "POST",
         })
             .then((response) => {

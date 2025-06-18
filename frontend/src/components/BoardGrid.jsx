@@ -31,7 +31,7 @@ const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
 
     // add a board and reload boards
     const addBoard = (formInput) => {
-        fetch("http://localhost:3000/boards", {
+        fetch("import.meta.env.VITE_SERVER_URL/boards", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const BoardGrid = ({ filterValue, searchTerm, boards, setBoards }) => {
 
     // delete a board with the specified id and reload boards
     const deleteBoard = (id) => {
-        fetch(`http://localhost:3000/boards/${id}`, {
+        fetch(`import.meta.env.VITE_SERVER_URL/boards/${id}`, {
             method: "DELETE",
             mode: "cors",
         })
