@@ -21,38 +21,82 @@ const HomePage = () => {
     // load boards from running server (connection to database)
     const loadBoards = () => {
         fetch(`${import.meta.env.VITE_SERVER_URL}/boards`)
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(
+                        `${response.status} ${response.statusText}`,
+                    );
+                } else {
+                    return response.json();
+                }
+            })
             .then((json) => setBoards(json))
             .catch((error) => console.error(`Error fetching boards: ${error}`));
     };
 
     const toggleColorScheme = () => {
         if (inDarkMode) {
-            document.documentElement.style.setProperty("--tan-background", "rgb(232, 215, 172)")
-            document.documentElement.style.setProperty("--tan-accent", "rgb(176, 143, 60)")
-            document.documentElement.style.setProperty("--green-background", "rgb(198, 231, 192)")
-            document.documentElement.style.setProperty("--green-accent", "rgb(162, 213, 149)")
-            document.documentElement.style.setProperty("--page-background", "rgb(251, 251, 248")
-            document.documentElement.style.setProperty("--text", "rgb(23, 21, 14)")
+            document.documentElement.style.setProperty(
+                "--tan-background",
+                "rgb(232, 215, 172)",
+            );
+            document.documentElement.style.setProperty(
+                "--tan-accent",
+                "rgb(176, 143, 60)",
+            );
+            document.documentElement.style.setProperty(
+                "--green-background",
+                "rgb(198, 231, 192)",
+            );
+            document.documentElement.style.setProperty(
+                "--green-accent",
+                "rgb(162, 213, 149)",
+            );
+            document.documentElement.style.setProperty(
+                "--page-background",
+                "rgb(251, 251, 248",
+            );
+            document.documentElement.style.setProperty(
+                "--text",
+                "rgb(23, 21, 14)",
+            );
             setInDarkMode(false);
-
         } else {
-            document.documentElement.style.setProperty("--tan-background", "rgb(80, 69, 46)")
-            document.documentElement.style.setProperty("--tan-accent", "rgb(174, 147, 79)")
-            document.documentElement.style.setProperty("--green-background", "rgb(59, 77, 56)")
-            document.documentElement.style.setProperty("--green-accent", "rgb(72, 116, 61)")
-            document.documentElement.style.setProperty("--page-background", "rgb(38, 32, 8)")
-            document.documentElement.style.setProperty("--text", "rgb(251, 251, 248)")
+            document.documentElement.style.setProperty(
+                "--tan-background",
+                "rgb(80, 69, 46)",
+            );
+            document.documentElement.style.setProperty(
+                "--tan-accent",
+                "rgb(174, 147, 79)",
+            );
+            document.documentElement.style.setProperty(
+                "--green-background",
+                "rgb(59, 77, 56)",
+            );
+            document.documentElement.style.setProperty(
+                "--green-accent",
+                "rgb(72, 116, 61)",
+            );
+            document.documentElement.style.setProperty(
+                "--page-background",
+                "rgb(38, 32, 8)",
+            );
+            document.documentElement.style.setProperty(
+                "--text",
+                "rgb(251, 251, 248)",
+            );
             setInDarkMode(true);
         }
-        
-    }
+    };
 
     useEffect(loadBoards, []);
 
     return (
         <>
-            <ColorSchemePicker inDarkMode={inDarkMode} setInDarkMode={toggleColorScheme}></ColorSchemePicker>
+            <ColorSchemePicker
+                inDarkMode={inDarkMode}
+                setInDarkMode={toggleColorScheme}></ColorSchemePicker>
             <header className={headerStyles["header"]}>
                 <h1 className={headerStyles["title"]}>kudoboard</h1>
             </header>
@@ -68,7 +112,9 @@ const HomePage = () => {
                     setBoards={setBoards}></BoardGrid>
             </main>
             <footer className={footerStyles["footer"]}>
-                <p className={footerStyles["footer-text"]}>Leia Spagnola 2025</p>
+                <p className={footerStyles["footer-text"]}>
+                    Leia Spagnola 2025
+                </p>
             </footer>
         </>
     );

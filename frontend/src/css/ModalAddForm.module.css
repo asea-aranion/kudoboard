@@ -1,0 +1,82 @@
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+}
+
+.label-container {
+    background-color: var(--tan-background);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    margin: auto;
+    border-radius: 2rem;
+    width: 100%;
+}
+
+label {
+    font-size: 28px;
+    margin: 0 1rem;
+}
+
+@media (max-width: 600px) {
+    .label-container {
+        background-color: transparent;
+        margin-top: 1rem;
+    }
+}
+
+.input-container {
+    background-color: var(--green-background);
+    height: 100%;
+    flex-grow: 2;
+    border-radius: 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0;
+}
+
+input,
+select {
+    font-family: inherit;
+    color: inherit;
+    font-size: 28px;
+    height: 28px;
+    overflow: hidden;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+}
+
+select {
+    height: auto;
+}
+
+input:focus-visible,
+select:focus-visible {
+    outline: none;
+}
+
+.submit-button {
+    width: 10rem;
+    padding: 1rem;
+    border: none;
+    background-color: var(--green-background);
+    font-family: inherit;
+    font-size: 32px;
+    border-radius: 1rem;
+    transition: transform 0.25s ease;
+    margin: auto;
+}
+
+.submit-button:hover {
+    transform: scale(1.1);
+}
