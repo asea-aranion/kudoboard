@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import styles from "../css/Modal.module.css";
-import GifPicker from "./GifPicker";
 import CardComments from "./CardComments";
 import AddBoardForm from "./AddBoardForm";
 import AddCardForm from "./AddCardForm";
