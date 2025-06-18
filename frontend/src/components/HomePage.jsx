@@ -20,7 +20,7 @@ const HomePage = () => {
 
     // load boards from running server (connection to database)
     const loadBoards = () => {
-        fetch("import.meta.env.VITE_SERVER_URL/boards")
+        fetch(`${import.meta.env.VITE_SERVER_URL}/boards`)
             .then((response) => response.json())
             .then((json) => setBoards(json))
             .catch((error) => console.error(`Error fetching boards: ${error}`));

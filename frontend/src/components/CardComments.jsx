@@ -11,7 +11,7 @@ const CardComments = ({ cardId }) => {
 
     // add comment with entered data
     const addComment = () => {
-        fetch(`import.meta.env.VITE_SERVER_URL/comments/card/${cardId}`, {
+        fetch(`${import.meta.env.VITE_SERVER_URL}/comments/card/${cardId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const CardComments = ({ cardId }) => {
 
     // load all comments associated with this card
     const fetchComments = () => {
-        fetch(`import.meta.env.VITE_SERVER_URL/comments/card/${cardId}`)
+        fetch(`${import.meta.env.VITE_SERVER_URL}/comments/card/${cardId}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(
