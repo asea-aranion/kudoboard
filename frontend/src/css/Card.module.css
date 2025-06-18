@@ -126,6 +126,7 @@
 .upvotes {
     padding-top: 5px;
     font-size: 32px;
+    margin: 0;
 }
 
 .comments-button {

@@ -163,7 +163,7 @@ const BoardPage = () => {
                         <ArrowBackRoundedIcon></ArrowBackRoundedIcon>{" "}
                         <p className={styles["back-button-text"]}>Back</p>
                     </button>
-                    <h2>{board.title}</h2>
+                    <h2 className={styles["title"]}>{board.title}</h2>
                     <div className={styles["detail-container"]}>
                         <LabelRoundedIcon
                             sx={{ fontSize: "36px" }}></LabelRoundedIcon>

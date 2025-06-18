@@ -61,8 +61,8 @@ const CardComments = ({ cardId }) => {
             <div className={styles["comments-container"]}>
                 {comments.map((comment) => (
                     <div className={styles["comment"]}>
-                        <p>{comment.text}</p>
-                        <p>- {comment.author ?? "Anonymous"}</p>
+                        <p className={styles["comment-text"]}>{comment.text}</p>
+                        <p className={styles["comment-text"]}>- {comment.author ?? "Anonymous"}</p>
                     </div>
                 ))}
             </div>
