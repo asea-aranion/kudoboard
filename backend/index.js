@@ -29,6 +29,7 @@ app.post("/boards", jsonParser, async (req, res) => {
 
     if (!created || !title || !category || !imgSrc || !imgAlt) {
         res.status(400).send("All fields except author required");
+        return;
     }
 
     await prisma.board.create({
@@ -115,8 +116,9 @@ app.post("/board/cards/:boardId", jsonParser, async (req, res) => {
 
     const { message, author, imgSrc, imgAlt, upvotes } = req.body;
 
-    if (!message || !upvotes || !imgSrc || !imgAlt) {
+    if (!message || !imgSrc || !imgAlt) {
         res.status(400).send("All fields except author required");
+        return;
     }
 
     await prisma.card.create({
@@ -237,6 +239,7 @@ app.post("/comments/card/:cardId", jsonParser, async (req, res) => {
 
     if (!text) {
         res.status(400).send("Text required");
+        return;
     }
 
     await prisma.comment.create({
