@@ -25,13 +25,13 @@
     align-items: center;
 }
 
-h2 {
+.title {
     font-size: 40px;
     font-family: "Lilita One", sans-serif;
     margin: 0;
 }
 
-form {
+.form {
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;

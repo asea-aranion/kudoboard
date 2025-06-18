@@ -53,8 +53,8 @@ const HomePage = () => {
     return (
         <>
             <ColorSchemePicker inDarkMode={inDarkMode} setInDarkMode={toggleColorScheme}></ColorSchemePicker>
-            <header>
-                <h1>kudoboard</h1>
+            <header className={headerStyles["header"]}>
+                <h1 className={headerStyles["title"]}>kudoboard</h1>
             </header>
             <main>
                 <FilterPicker
@@ -67,8 +67,8 @@ const HomePage = () => {
                     boards={boards}
                     setBoards={setBoards}></BoardGrid>
             </main>
-            <footer>
-                <p>Leia Spagnola 2025</p>
+            <footer className={footerStyles["footer"]}>
+                <p className={footerStyles["footer-text"]}>Leia Spagnola 2025</p>
             </footer>
         </>
     );

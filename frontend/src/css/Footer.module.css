@@ -1,4 +1,4 @@
-footer {
+.footer {
     background-color: var(--tan-background);
     font-size: 24px;
     margin: 0;
@@ -11,6 +11,6 @@ footer {
     align-items: center;
 }
 
-p {
+.footer-text {
     margin: 0;
 }

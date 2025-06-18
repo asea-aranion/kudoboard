@@ -71,8 +71,8 @@ const Modal = ({ mode, setMode, addBoard, addCard, cardInfo }) => {
                     ref={overlayRef}
                     onClick={handleOverlayClick}>
                     <div className={styles["modal"]}>
-                        <h2>add board</h2>
-                        <form>
+                        <h2 className={styles["title"]}>add board</h2>
+                        <form className={styles["form"]}>
                             <div className={styles["label-container"]}>
                                 <label htmlFor="title">Title</label>
                                 <div className={styles["input-container"]}>
@@ -148,8 +148,8 @@ const Modal = ({ mode, setMode, addBoard, addCard, cardInfo }) => {
                     ref={overlayRef}
                     onClick={handleOverlayClick}>
                     <div className={styles["modal"]}>
-                        <h2>add card</h2>
-                        <form>
+                        <h2 className={styles["title"]}>add card</h2>
+                        <form className={styles["form"]}>
                             <div className={styles["label-container"]}>
                                 <label htmlFor="message">Message</label>
                                 <div className={styles["input-container"]}>
@@ -201,7 +201,7 @@ const Modal = ({ mode, setMode, addBoard, addCard, cardInfo }) => {
                     ref={overlayRef}
                     onClick={handleOverlayClick}>
                     <div className={styles["modal"]}>
-                        <h2>comments</h2>
+                        <h2 className={styles["title"]}>comments</h2>
                         <div className={styles["split-container"]}>
                             <div className={styles["card-info-container"]}>
                                 <iframe
