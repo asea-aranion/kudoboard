@@ -23,6 +23,13 @@ label {
     margin: 0 1rem;
 }
 
+@media (max-width: 600px) {
+    .label-container {
+        background-color: transparent;
+        margin-top: 1rem;
+    }
+}
+
 .input-container {
     background-color: var(--green-background);
     height: 100%;
