@@ -6,6 +6,7 @@
     border-radius: 2rem;
     position: fixed;
     right: 2rem;
+    bottom: 1rem;
     z-index: 3;
 }
 

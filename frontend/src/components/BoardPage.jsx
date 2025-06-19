@@ -7,6 +7,7 @@ import LabelRoundedIcon from "@mui/icons-material/LabelRounded";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Modal from "./Modal";
+import ColorSchemePicker from "./ColorSchemePicker";
 
 const BoardPage = () => {
     // get id of this board
@@ -19,6 +20,12 @@ const BoardPage = () => {
 
     // type of content modal should display (here, hidden or add-card)
     const [modalMode, setModalMode] = useState("hidden");
+
+    // true if site is using dark css colors
+    const [inDarkMode, setInDarkMode] = useState(
+        document.documentElement.style.getPropertyValue("--tan-background") ===
+            "rgb(80, 69, 46)",
+    );
 
     const navigate = useNavigate();
 
@@ -152,6 +159,9 @@ const BoardPage = () => {
     if (board) {
         return (
             <>
+                <ColorSchemePicker
+                    inDarkMode={inDarkMode}
+                    setInDarkMode={setInDarkMode}></ColorSchemePicker>
                 <Modal
                     mode={modalMode}
                     setMode={setModalMode}
