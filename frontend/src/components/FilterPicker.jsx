@@ -7,13 +7,13 @@ const FilterPicker = ({ filterValue, updateFilterValue }) => {
             case "All":
                 return "0";
             case "Recent":
-                return "10rem";
+                return "100%";
             case "Thank you":
-                return "20rem";
+                return "200%";
             case "Inspiration":
-                return "30rem";
+                return "300%";
             case "Celebration":
-                return "40rem";
+                return "400%";
         }
     };
 

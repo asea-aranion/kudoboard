@@ -1,6 +1,6 @@
 .picker-container {
     background-color: var(--green-background);
-    width: 50rem;
+    width: 60vw;
     height: 4rem;
     margin: 2rem auto;
     border-radius: 2rem;
@@ -31,4 +31,17 @@
     font-size: 32px;
     text-align: center;
     margin: 0;
+}
+
+@media (max-width: 900px) {
+    .picker-container {
+        width: 95vw;
+    }
+}
+
+@media (max-width: 800px) {
+    
+    .picker-options-container p {
+        font-size: 24px;
+    }
 }
