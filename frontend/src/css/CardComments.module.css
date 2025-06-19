@@ -93,4 +93,10 @@
     font-size: 24px;
     border-radius: 2rem;
     padding: 0.5rem 2rem;
+    width: 100%;
+    transition: transform 0.25s ease;
+}
+
+.add-comment-button:hover {
+    transform: scale(1.1);
 }

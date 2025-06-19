@@ -3,7 +3,6 @@ import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 
 const ColorSchemePicker = ({ inDarkMode, setInDarkMode }) => {
-
     // get horizontal offset to align slider with correct icon
     const getSliderOffset = () => {
         if (inDarkMode) {

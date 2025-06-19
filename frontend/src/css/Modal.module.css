@@ -8,6 +8,50 @@
     z-index: 5;
 }
 
+@keyframes slide-alert {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25% {
+        transform: translateY(15vh);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(15vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+.alert {
+    width: 40vw;
+    height: 10vh;
+    background-color: var(--tan-background);
+    position: fixed;
+    top: calc(-10vh - 5px);
+    left: 30vw;
+    z-index: 3;
+    box-shadow: 0 5px 0 var(--tan-accent);
+    text-align: center;
+    border-radius: 1rem;
+    animation: 2s ease slide-alert;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert-text {
+    margin: 0;
+    font-size: 32px;
+    padding-top: 5px;
+}
+
 .modal {
     width: 80vw;
     height: 80vh;

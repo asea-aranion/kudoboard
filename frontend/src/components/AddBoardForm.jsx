@@ -2,7 +2,7 @@ import styles from "../css/ModalAddForm.module.css";
 import { useState } from "react";
 import GifPicker from "./GifPicker";
 
-const AddBoardForm = ({ addBoard, setMode }) => {
+const AddBoardForm = ({ addBoard, setMode, setShowingAlert }) => {
     // data entered in form
     const [addBoardData, setAddBoardData] = useState({
         title: "",
@@ -25,9 +25,14 @@ const AddBoardForm = ({ addBoard, setMode }) => {
     const handleAddSubmit = (event) => {
         event.preventDefault();
 
-        addBoard(addBoardData);
+        if (!addBoardData.title || !addBoardData.category || !addBoardData.imgSrc) {
+            setShowingAlert(true);
+        } else {
+            setShowingAlert(false);
+            addBoard(addBoardData);
 
-        setMode("hidden");
+            setMode("hidden");
+        }
     };
 
     return (

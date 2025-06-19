@@ -1,7 +1,7 @@
 import styles from "../css/CardComments.module.css";
 import { useEffect, useState } from "react";
 
-const CardComments = ({ cardId }) => {
+const CardComments = ({ cardId, setShowingAlert }) => {
     const [comments, setComments] = useState(Array());
 
     const [newComment, setNewComment] = useState({
@@ -11,6 +11,13 @@ const CardComments = ({ cardId }) => {
 
     // add comment with entered data
     const addComment = () => {
+        if (!newComment.text) {
+            setShowingAlert(true);
+            return;
+        } else {
+            setShowingAlert(false);
+        }
+
         fetch(`${import.meta.env.VITE_SERVER_URL}/comments/card/${cardId}`, {
             method: "POST",
             headers: {

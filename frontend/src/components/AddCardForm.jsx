@@ -2,7 +2,7 @@ import styles from "../css/ModalAddForm.module.css";
 import { useState } from "react";
 import GifPicker from "./GifPicker";
 
-const AddCardForm = ({ addCard, setMode }) => {
+const AddCardForm = ({ addCard, setMode, setShowingAlert }) => {
     // data entered in form
     const [addCardData, setAddCardData] = useState({
         message: "",
@@ -24,11 +24,15 @@ const AddCardForm = ({ addCard, setMode }) => {
     const handleAddSubmit = (event) => {
         event.preventDefault();
 
-        console.log(addCardData);
+        if (!addCardData.message || !addCardData.imgSrc) {
+            setShowingAlert(true);
+        } else {
+            setShowingAlert(false);
 
-        addCard(addCardData);
+            addCard(addCardData);
 
-        setMode("hidden");
+            setMode("hidden");
+        }
     };
 
     return (
