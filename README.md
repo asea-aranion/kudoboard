@@ -101,35 +101,35 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboa
     - [x] Users can toggle between light mode and dark mode using a button displayed on the:
         - [x] Home Page
         - [x] Board Pages
-    - [ ] When the button is clicked, the color theme switches to the opposite of the current mode.
-    - [ ] When dark mode is enabled:
-        - [ ] Text and icons use a light color
-        - [ ] The background uses a dark color
-        - [ ] Color contrast has at least a 4.5:1 ratio using this [color contrast checker](https://webaim.org/resources/contrastchecker/)
-    - [ ] When light mode is enabled:
-        - [ ] Text and icons use a dark color
-        - [ ] The background uses a light color
-        - [ ] Color contrast has at least a 4.5:1 ratio using this [color contrast checker](https://webaim.org/resources/contrastchecker/)
-    - [ ] The chosen mode (light or dark) persists when navigating from home page to board pages and vice versa.
-    - [ ] When the user first visits the site the theme defaults to light mode.
+    - [x] When the button is clicked, the color theme switches to the opposite of the current mode.
+    - [x] When dark mode is enabled:
+        - [x] Text and icons use a light color
+        - [x] The background uses a dark color
+        - [x] Color contrast has at least a 4.5:1 ratio using this [color contrast checker](https://webaim.org/resources/contrastchecker/)
+    - [x] When light mode is enabled:
+        - [x] Text and icons use a dark color
+        - [x] The background uses a light color
+        - [x] Color contrast has at least a 4.5:1 ratio using this [color contrast checker](https://webaim.org/resources/contrastchecker/)
+    - [x] The chosen mode (light or dark) persists when navigating from home page to board pages and vice versa.
+    - [x] When the user first visits the site the theme defaults to light mode.
     - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast in both light and dark mode. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it.
-- [ ] **Pinned Cards**
-    - [ ] Users can pin a card to the top of the board.
-    - [ ] A Pin button is displayed on each card.
-    - [ ] When the user clicks the Pin button of an unpinned card:
-        - [ ] The card moves to the top of the grid view for that board.
-        - [ ] There is some visual feedback to indicate a card's pin status (e.g., a pin icon, a border highlight).
-        - [ ] The pin action is saved so that the card remains pinned after page refreshes.
-    - [ ] When the user clicks the Pin button of a pinned card:
-        - [ ] The card returns to its original position in the grid based on its creation time or to the end of the grid.
-        - [ ] The card's pin status (e.g., a pin icon or highlight) is removed.
-        - [ ] The unpin action is saved so that the card remains unpinned after page refresh.
-    - [ ] Pinned cards always appear at the top of the board, above unpinned cards.
-    - [ ] If multiple cards are pinned, they maintain their pinned order based on the time they were pinned.
-        - [ ] More recent pins should appear first.
-- [ ] The pinned state of a card persists when:
-    - [ ] navigating away from and back to the board.
-    - [ ] refreshing the page.
+- [x] **Pinned Cards**
+    - [x] Users can pin a card to the top of the board.
+    - [x] A Pin button is displayed on each card.
+    - [x] When the user clicks the Pin button of an unpinned card:
+        - [x] The card moves to the top of the grid view for that board.
+        - [x] There is some visual feedback to indicate a card's pin status (e.g., a pin icon, a border highlight).
+        - [x] The pin action is saved so that the card remains pinned after page refreshes.
+    - [x] When the user clicks the Pin button of a pinned card:
+        - [x] The card returns to its original position in the grid based on its creation time or to the end of the grid.
+        - [x] The card's pin status (e.g., a pin icon or highlight) is removed.
+        - [x] The unpin action is saved so that the card remains unpinned after page refresh.
+    - [x] Pinned cards always appear at the top of the board, above unpinned cards.
+    - [x] If multiple cards are pinned, they maintain their pinned order based on the time they were pinned.
+        - [x] More recent pins should appear first.
+- [x] The pinned state of a card persists when:
+    - [x] navigating away from and back to the board.
+    - [x] refreshing the page.
 
 ### Walkthrough Video
 
@@ -141,11 +141,11 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboa
 
 - Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I felt prepared for this assignment. I appreciated that the instructors took us step-by-step through creating the backend server and deploying the site. The two features that I had to do extra research on were page navigation with react-router-dom and the light/dark mode toggling.
 
 - If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-Add your response here
+I would have refined the styling and responsiveness more, especially in the forms and GIF picker.
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -153,7 +153,10 @@ Add your response here
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- [Material Icons](https://mui.com/material-ui/material-icons/)
+- [Express.js](https://expressjs.com/)
+- [CORS](https://www.npmjs.com/package/cors?activeTab=readme)
+- [React Router](https://www.npmjs.com/package/react-router?activeTab=readme)
 
 ### Shout out
 
