@@ -21,6 +21,18 @@ const AddBoardForm = ({ addBoard, setMode, setShowingAlert }) => {
         });
     };
 
+    // calculate horizontal position of dark green slider in category picker based on filter value
+    const getCategorySliderOffset = () => {
+        switch (addBoardData.category) {
+            case "Thank you":
+                return "0";
+            case "Inspiration":
+                return "100%";
+            case "Celebration":
+                return "200%";
+        }
+    };
+
     // add board and hide modal containing this form
     const handleAddSubmit = (event) => {
         event.preventDefault();
@@ -56,20 +68,24 @@ const AddBoardForm = ({ addBoard, setMode, setShowingAlert }) => {
                 </div>
                 <div className={styles["label-container"]}>
                     <label htmlFor="category">Category</label>
-                    <div className={styles["input-container"]}>
-                        <select
-                            onChange={(event) =>
-                                setAddBoardData({
+                    <div className={styles["category-picker-container"]}>
+                        <div className={styles["category-slider"]} style={{transform: `translateX(${getCategorySliderOffset()})`}}>
+                        </div> 
+                            <div className={styles["category-options-container"]}>
+                                <p onClick={() => setAddBoardData({
                                     ...addBoardData,
-                                    category: event.target.value,
-                                })
-                            }
-                            id="category"
-                            required={true}>
-                            <option value="Thank you">Thank you</option>
-                            <option value="Inspiration">Inspiration</option>
-                            <option value="Celebration">Celebration</option>
-                        </select>
+                                    category: "Thank you"
+                                })}>Thank you</p>
+                                <p onClick={() => setAddBoardData({
+                                    ...addBoardData,
+                                    category: "Inspiration"
+                                })}>Inspiration</p>
+                                <p onClick={() => setAddBoardData({
+                                    ...addBoardData,
+                                    category: "Celebration"
+                                })}>Celebration</p>
+                            </div>
+                        
                     </div>
                 </div>
                 <div className={styles["label-container"]}>
