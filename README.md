@@ -81,7 +81,7 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboa
     - [x] When the user clicks the delete button for a card, the card disappears from the grid of cards.
 - [x] **Deployment**
     - [x] Website is deployed via Render.
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
 
 #### Stretch Features
 
@@ -112,7 +112,7 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboa
         - [x] Color contrast has at least a 4.5:1 ratio using this [color contrast checker](https://webaim.org/resources/contrastchecker/)
     - [x] The chosen mode (light or dark) persists when navigating from home page to board pages and vice versa.
     - [x] When the user first visits the site the theme defaults to light mode.
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast in both light and dark mode. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it.
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast in both light and dark mode. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it.
 - [x] **Pinned Cards**
     - [x] Users can pin a card to the top of the board.
     - [x] A Pin button is displayed on each card.
@@ -133,9 +133,14 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboa
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+<div>
+    <a href="https://www.loom.com/share/4b2c75fb8d074ba5913fe041e110941b">
+      <p>kudoboard - 20 June 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/4b2c75fb8d074ba5913fe041e110941b">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/4b2c75fb8d074ba5913fe041e110941b-68d1d795e20d2783-full-play.gif">
+    </a>
+  </div>
 
 ### Reflection
 
@@ -149,7 +154,7 @@ I would have refined the styling and responsiveness more, especially in the form
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I did not demo this week, but overall I am proud of my project and was able to implement all of the features and most of the UI I wanted to.
 
 ### Open-source libraries used
 
@@ -160,4 +165,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+I appreciate Virsaviya checking in with me and making sure I was on track in the middle of the week.
